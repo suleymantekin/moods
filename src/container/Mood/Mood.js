@@ -8,59 +8,54 @@ class Mood extends Component {
         this.audio = React.createRef();
     }
     state = {
-        name: "",
+        name: "Fireplace",
         pictureUrl: "http://is1.mzstatic.com/image/thumb/Purple3/v4/ed/69/54/ed6954c5-3223-1166-568c-9ca14b975d38/source/800x500bb.jpg",
         audioFileUrl: "https://dl.dropbox.com/s/tn0bo7jncpi0qy8/fireplace.mp3",
         volume: 50,
-        playing: false
+        playing: true
     };
 
     componentDidMount() {
-        //const audio = this.audio.current;
-        //this.playSound(audio);
+        const audio = this.audio.current;
     }
 
     playSound = () => {
-        console.log(this.audio);
-        if (!this.audio.current) return; //if there is no audio just return
-        this.audio.current.currentTime = 0; //rewind to start
-        this.audio.current.volume = this.state.volume / 100;
-        this.state.playing ? this.audio.current.play() : this.audio.current.pause();
-        ;
-        //key.classList.add("playing");
+
     };
 
-    handleUpdate = (e) => {
+    handleVolumeUpdate = (e) => {
         const value = e.nativeEvent.target.value;
         this.setState({ volume: value });
         console.log(this.state.volume)
-
+        this.audio.current.volume = this.state.volume / 100;
         // audio.volume = this.value/100;
     };
 
     togglePlay = () => {
+
         console.log(this.state.playing)
         this.setState({
             playing: !this.state.playing
-        })
+        });
+        this.state.playing ? this.audio.current.play() : this.audio.current.pause();
     }
 
     render() {
         return (
             <div className="card">
-                <div className="card-header" onClick={this.playSound()}>
+                <div className="card-header">
                     <img src={this.state.pictureUrl} />
                 </div>
                 <div className="card-content">
-                    <button className="togglePlay" onClick={this.togglePlay}>{this.state.playing ? "Pause" : "Play"}</button>
-                    <h3>Fireplace</h3>
+                    <button className="togglePlayButton" onClick={this.togglePlay}>{this.state.playing ? "Play" : "Pause"}</button>
+                    <h3>{this.state.name}</h3>
                     <input
                         type="range"
                         min="0"
                         max="100"
                         value={this.state.volume}
                         className="slider"
-                        onChange={this.handleUpdate}
+                        onChange={this.handleVolumeUpdate}
                     />
                 </div>
                 <audio

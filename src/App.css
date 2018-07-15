@@ -1,8 +1,9 @@
 .App {
   text-align: center;
 }
+
 .App-header {
   height: 150px;
   padding: 10px;
-  color: rgb(209, 209, 209);
+  color: black;
 }
