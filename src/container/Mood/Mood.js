@@ -9,34 +9,27 @@ class Mood extends Component {
         this.audio = React.createRef();
     }
 
-
-    componentDidMount() {
-        const audio = this.audio.current;
-    }
-
-    playSound = () => {
-
-    };
-
     handleVolumeUpdate = (e) => {
         const value = e.nativeEvent.target.value;
-        this.props.changeVolume(value);
-        console.log(this.props.mood.volume)
-        this.audio.current.volume = this.props.mood.volume / 100;
+        const updatedMood = { ...this.props.mood, volume: value }
+        this.props.changeVolume(updatedMood);
+        this.audio.current.volume = value / 100;
     };
 
     togglePlay = () => {
         this.props.mood.playing ? this.audio.current.play() : this.audio.current.pause();
+        this.props.togglePlay(this.props.mood);
+        console.log(this.audio)
     }
 
     render() {
         return (
             <div className="card">
                 <div className="card-header">
-                    <img src={this.props.mood.pictureUrl} />
+                    <img src={this.props.mood.pictureUrl} alt={this.props.mood.name} />
                 </div>
                 <div className="card-content">
-                    <button className="togglePlayButton" onClick={() => this.props.togglePlay(this.audio.current)}>{this.props.mood.playing ? "Play" : "Pause"}</button>
+                    <button className="togglePlayButton" onClick={this.togglePlay}>{this.props.mood.playing ? "Play" : "Pause"}</button>
                     <h3>{this.props.mood.name}</h3>
                     <input
                         type="range"
@@ -51,22 +44,19 @@ class Mood extends Component {
                     id="fireplace"
                     ref={this.audio}
                     src={this.props.mood.audioFileUrl}
+                    loop
                 />
             </div>
         );
     }
 }
 
-const mapStateToProps = (state) => {
-    return { mood: state }
-};
-
 const mapDispatchToProps = (dispatch) => {
     return {
-        togglePlay: (audio) => { dispatch(togglePlay(audio)) },
-        changeVolume: (volume) => { dispatch(changeVolume(volume)) }
+        togglePlay: (mood) => { dispatch(togglePlay(mood)) },
+        changeVolume: (mood) => { dispatch(changeVolume(mood)) }
 
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Mood);
+export default connect(null, mapDispatchToProps)(Mood);

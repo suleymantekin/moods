@@ -2,17 +2,17 @@
 export const TOGGLE_PLAY = 'TOGGLE_PLAY';
 export const CHANGE_VOLUME = 'CHANGE_VOLUME';
 
-export const togglePlay = (audio) => {
+export const togglePlay = (mood) => {
     return {
         type: TOGGLE_PLAY,
-        audio: audio
+        mood: mood
     }
 };
 
-export const changeVolume = (volume) => {
+export const changeVolume = (mood) => {
     return {
         type: CHANGE_VOLUME,
-        volume: volume
+        mood: mood
     }
 }
 
