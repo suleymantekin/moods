@@ -9,18 +9,19 @@ const SavedMood = (props) => {
         }
         return accumulator;
     }, 0);
-    console.log(sum);
+
     return (
         <div className="savedMood">
-            <h3>{props.name}</h3>
+            <h2>{props.name}</h2>
             {
                 Object.keys(props.moods).map((key, index) => {
                     if (!props.moods[key].playing) {
-                        return <span key={key} style={{ width: (props.moods[key].volume / sum) * 200 + 'px', backgroundColor: props.moods[key].color }}>&nbsp;</span>
+                        return <span key={key} style={{ width: (props.moods[key].volume / sum) * 250 + 'px', backgroundColor: props.moods[key].color }}>&nbsp;</span>
                     }
 
                 })
             }
+            <button className="playButton">Play</button>
         </div>
     )
 }

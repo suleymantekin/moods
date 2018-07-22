@@ -7,7 +7,7 @@ const initialState = {
         audioFileUrl: require('../../assets/fireplace.mp3'),
         volume: 30,
         playing: true,
-        color: 'orange'
+        color: '#eaa612'
     },
     Rain: {
         name: "Rain",
@@ -15,7 +15,7 @@ const initialState = {
         audioFileUrl: require('../../assets/rain.mp3'),
         volume: 30,
         playing: true,
-        color: 'gray'
+        color: '#fae9a9'
     },
     Birds: {
         name: "Birds",
@@ -23,7 +23,7 @@ const initialState = {
         audioFileUrl: require('../../assets/birds.mp3'),
         volume: 30,
         playing: true,
-        color: 'green'
+        color: '#b50804'
     },
     Stream: {
         name: "Stream",
@@ -31,7 +31,7 @@ const initialState = {
         audioFileUrl: require('../../assets/stream.mp3'),
         volume: 30,
         playing: true,
-        color: 'blue'
+        color: '#3e4079'
     },
     Breeze: {
         name: "Breeze",
@@ -39,7 +39,7 @@ const initialState = {
         audioFileUrl: require('../../assets/breeze.mp3'),
         volume: 30,
         playing: true,
-        color: 'white'
+        color: '#83bcc3'
     }
 };
 
