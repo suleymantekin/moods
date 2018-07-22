@@ -1,9 +1,7 @@
-.App {
-  text-align: center;
+body {
+  background-color: #f7be44;
 }
 
-.App-header {
-  height: 150px;
-  padding: 10px;
-  color: black;
+.App {
+  text-align: center;
 }
