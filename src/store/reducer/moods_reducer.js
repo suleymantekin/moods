@@ -1,6 +1,4 @@
-
 import { TOGGLE_PLAY, CHANGE_VOLUME } from '../actions/moods_actions'
-const birds = require('../../assets/birds.jpg');
 
 const initialState = {
     Fireplace: {
@@ -37,14 +35,11 @@ const initialState = {
         audioFileUrl: require('../../assets/breeze.mp3'),
         volume: 30,
         playing: true
-    },
-    savedMoods: {
-        Love: "Love"
     }
 };
 
 export const moodsReducer = (state = initialState, action) => {
-    console.log('In reducer...');
+    console.log('In moodsReducer...');
     switch (action.type) {
         case TOGGLE_PLAY:
             const mood = { ...action.mood, playing: !action.mood.playing }
