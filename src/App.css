@@ -28,3 +28,30 @@ button:active {
 input {
   outline: none;
 }
+
+nav {
+  background: black;
+  top: 0;
+  height: 65px;
+  width: 100%;
+  display: flex;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+nav ul {
+  margin: auto 20px;
+  padding: 0;
+  list-style: none;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -ms-flex-align: center;
+  align-items: center;
+  flex: 1;
+}
+
+li.logo {
+  font-weight: 600;
+  font-size: 30px;
+}

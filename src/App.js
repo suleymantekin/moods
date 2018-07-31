@@ -5,6 +5,7 @@ import './App.css';
 import moodsReducer from "./store/reducer/moods_reducer";
 import savedMoodReducer from "./store/reducer/saved_moods_reducer";
 
+import Header from './components/Header';
 import Moods from './container/Moods/Moods';
 import SavedMoods from './container/SavedMoods/SavedMoods'
 
@@ -18,6 +19,7 @@ class App extends Component {
     return (
       <Provider store={store}>
         <div className="App">
+          <Header />
           <SavedMoods />
           <h1>Moods</h1>
           <Moods />
