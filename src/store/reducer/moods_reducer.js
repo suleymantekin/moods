@@ -43,7 +43,7 @@ const initialState = {
     }
 };
 
-export const moodsReducer = (state = initialState, action) => {
+export default (state = initialState, action) => {
     switch (action.type) {
         case TOGGLE_PLAY:
             const mood = { ...action.mood, playing: !action.mood.playing }

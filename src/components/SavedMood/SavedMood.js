@@ -2,26 +2,25 @@ import React from 'react';
 
 import './SavedMood.css'
 
-const SavedMood = (props) => {
-    const sum = Object.keys(props.moods).reduce(function (accumulator, currentValue) {
-        if (props.moods[currentValue].playing) {
-            return accumulator + parseInt(props.moods[currentValue].volume);
+const SavedMood = ({ name, moods, play }) => {
+    const sum = Object.keys(moods).reduce(function (accumulator, currentValue) {
+        if (moods[currentValue].playing) {
+            return accumulator + parseInt(moods[currentValue].volume);
         }
         return accumulator;
     }, 0);
 
     return (
         <div className="savedMood">
-            <h2>{props.name}</h2>
+            <h2>{name}</h2>
             {
-                Object.keys(props.moods).map((key, index) => {
-                    if (props.moods[key].playing) {
-                        return <span key={key} style={{ width: (props.moods[key].volume / sum) * 250 + 'px', backgroundColor: props.moods[key].color }}>&nbsp;</span>
+                Object.keys(moods).map((key, index) => {
+                    if (moods[key].playing) {
+                        return <span key={key} style={{ width: (moods[key].volume / sum) * 250 + 'px', backgroundColor: moods[key].color }}>&nbsp;</span>
                     }
-
                 })
             }
-            <button className="playButton" onClick={() => props.play(props.moods)}>Play</button>
+            <button className="playButton" onClick={() => play(moods)}>Play</button>
         </div>
     )
 }

@@ -1,13 +1,14 @@
 body {
-  background-color: #e8cf94;
+  background-color: #485454;
   text-align: center;
+  color: white;
 }
 
 button {
+  font-size: 18px;
   margin: auto;
   display: block;
   width: auto;
-  color: #ecf0f1;
   text-decoration: none;
   border-radius: 5px;
   border: none;

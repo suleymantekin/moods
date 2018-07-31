@@ -13,9 +13,10 @@ class Mood extends Component {
 
 
     handleVolumeUpdate = (e) => {
+        const { mood, changeVolume } = this.props
         const value = e.target.value;
-        const updatedMood = { ...this.props.mood, volume: value }
-        this.props.changeVolume(updatedMood);
+        const updatedMood = { ...mood, volume: value }
+        changeVolume(updatedMood);
         this.audio.current.volume = value / 100;
     };
 
