@@ -1,4 +1,4 @@
-import { TOGGLE_PLAY, CHANGE_VOLUME } from '../actions/moods_actions'
+import { TOGGLE_PLAY, CHANGE_VOLUME, PLAY_MOOD } from '../actions/moods_actions'
 
 const initialState = {
     Fireplace: {
@@ -6,7 +6,7 @@ const initialState = {
         pictureUrl: require('../../assets/fireplace.jpg'),
         audioFileUrl: require('../../assets/fireplace.mp3'),
         volume: 30,
-        playing: true,
+        playing: false,
         color: '#eaa612'
     },
     Rain: {
@@ -14,7 +14,7 @@ const initialState = {
         pictureUrl: require('../../assets/rain.jpg'),
         audioFileUrl: require('../../assets/rain.mp3'),
         volume: 30,
-        playing: true,
+        playing: false,
         color: '#fae9a9'
     },
     Birds: {
@@ -22,7 +22,7 @@ const initialState = {
         pictureUrl: require('../../assets/birds.jpg'),
         audioFileUrl: require('../../assets/birds.mp3'),
         volume: 30,
-        playing: true,
+        playing: false,
         color: '#b50804'
     },
     Stream: {
@@ -30,7 +30,7 @@ const initialState = {
         pictureUrl: require('../../assets/stream.jpg'),
         audioFileUrl: require('../../assets/stream.mp3'),
         volume: 30,
-        playing: true,
+        playing: false,
         color: '#3e4079'
     },
     Breeze: {
@@ -38,13 +38,12 @@ const initialState = {
         pictureUrl: require('../../assets/breeze.jpeg'),
         audioFileUrl: require('../../assets/breeze.mp3'),
         volume: 30,
-        playing: true,
+        playing: false,
         color: '#83bcc3'
     }
 };
 
 export const moodsReducer = (state = initialState, action) => {
-    console.log('In moodsReducer...');
     switch (action.type) {
         case TOGGLE_PLAY:
             const mood = { ...action.mood, playing: !action.mood.playing }
@@ -57,6 +56,9 @@ export const moodsReducer = (state = initialState, action) => {
                 ...state,
                 [action.mood.name]: action.mood
             }
+        case PLAY_MOOD:
+            console.log(action.mood);
+            return action.mood;
         default:
             return state;
     }
