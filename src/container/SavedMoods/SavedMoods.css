@@ -3,3 +3,7 @@
     justify-content: space-around;
     flex-wrap: wrap;
 }
+
+.saveButton {
+    margin-top: 10px;
+}

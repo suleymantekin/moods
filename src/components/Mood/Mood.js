@@ -8,7 +8,6 @@ class Mood extends Component {
     }
 
     componentDidUpdate() {
-        console.log(this.audio, "ASDFasd")
         this.props.mood.playing ? this.audio.current.play() : this.audio.current.pause();
     }
 

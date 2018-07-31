@@ -8,10 +8,20 @@ span {
     user-select: none;
 }
 
+.inputSaveMood {
+    width: 30%;
+    height: 20px;
+    padding: 8px 10px;
+    border: 1px solid #EDEDED;
+    border-radius: 4px;
+    transition: 0.2s ease-out;
+    color: darken(#EDEDED, 30%);
+}
+
+.inputSaveMood:focus {
+    padding: 10px 5px 10px 10px;
+}
+
 .playButton {
-    margin: 10px auto;
-    display: block;
-    width: 50%;
-    padding: 5px;
-    cursor: pointer;
+    margin-top: 10px;
 }

@@ -27,7 +27,6 @@ class Moods extends Component {
         console.log(savedMoods);
         return (
             <div>
-                <h1>Saved Moods</h1>
                 <div className="savedMoods">
                     {
                         savedMoods.map((key) => <SavedMood
@@ -38,11 +37,12 @@ class Moods extends Component {
                     }
                 </div>
                 <input
+                    className="inputSaveMood"
                     type="text"
                     placeholder="Enter a name"
                     value={this.state.input}
                     onChange={(e) => this.setState({ input: e.target.value })} />
-                <button onClick={this.saveMoodHandler}>Save mood</button>
+                <button onClick={this.saveMoodHandler} className="saveButton" >Save mood</button>
             </div >
         )
     };

@@ -1,7 +1,29 @@
 body {
-  background-color: #f7be44;
+  background-color: #e8cf94;
+  text-align: center;
 }
 
-.App {
-  text-align: center;
+button {
+  margin: auto;
+  display: block;
+  width: auto;
+  color: #ecf0f1;
+  text-decoration: none;
+  border-radius: 5px;
+  border: none;
+  background: #e67e22;
+  outline: none;
+  padding: 16px 18px 14px;
+  transition: all 0.1s;
+  box-shadow: 0px 6px 0px #d35400;
+}
+
+button:active {
+  box-shadow: 0px 2px 0px #d35400;
+  transform: scale(0.8, 0.8);
+  top: 4px;
+}
+
+input {
+  outline: none;
 }
