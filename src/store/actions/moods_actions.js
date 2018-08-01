@@ -26,7 +26,10 @@ export const playMood = (mood) => {
 }
 
 export const pauseAll = (moods) => {
-    type: PAUSE_ALL,
+    return {
+        type: PAUSE_ALL,
         moods
+
+    }
 }
 
