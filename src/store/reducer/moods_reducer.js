@@ -1,4 +1,4 @@
-import { TOGGLE_PLAY, CHANGE_VOLUME, PLAY_MOOD } from '../actions/moods_actions'
+import { TOGGLE_PLAY, CHANGE_VOLUME, PLAY_MOOD, PAUSE_ALL, pauseAll } from '../actions/moods_actions'
 
 const initialState = {
     Fireplace: {
@@ -46,7 +46,7 @@ const initialState = {
 export default (state = initialState, action) => {
     switch (action.type) {
         case TOGGLE_PLAY:
-            const mood = { ...action.mood, playing: !action.mood.playing }
+            const mood = { ...action.mood, playing: false }
             return {
                 ...state,
                 [action.mood.name]: mood
@@ -59,6 +59,8 @@ export default (state = initialState, action) => {
         case PLAY_MOOD:
             console.log(action.mood);
             return action.mood;
+        case PAUSE_ALL:
+            return action.moods
         default:
             return state;
     }
