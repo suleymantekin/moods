@@ -29,7 +29,6 @@ export const pauseAll = (moods) => {
     return {
         type: PAUSE_ALL,
         moods
-
     }
 }
 

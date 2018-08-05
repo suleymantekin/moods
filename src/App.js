@@ -20,6 +20,7 @@ class App extends Component {
       <Provider store={store}>
         <div className="App">
           <Header />
+          <h1>Our favorites</h1>
           <SavedMoods />
           <h1>Moods</h1>
           <Moods />

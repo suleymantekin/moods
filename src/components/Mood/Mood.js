@@ -9,6 +9,7 @@ class Mood extends Component {
 
     componentDidUpdate() {
         this.props.mood.playing ? this.audio.current.play() : this.audio.current.pause();
+        this.audio.current.volume = this.props.mood.volume / 100;
     }
 
 
