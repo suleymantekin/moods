@@ -12,7 +12,7 @@ const SavedMood = ({ name, moods, play }) => {
 
     return (
         <div className="savedMood">
-            <h2>{name}</h2>
+            <p>{name}</p>
             {
                 Object.keys(moods).map((key, index) => {
                     if (moods[key].playing) {
@@ -20,7 +20,7 @@ const SavedMood = ({ name, moods, play }) => {
                     }
                 })
             }
-            <button className="playButton" onClick={() => play(moods)}>Play</button>
+            <button onClick={() => play(moods)}>Play</button>
         </div>
     )
 }

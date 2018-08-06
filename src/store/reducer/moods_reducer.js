@@ -46,7 +46,7 @@ const initialState = {
 export default (state = initialState, action) => {
     switch (action.type) {
         case TOGGLE_PLAY:
-            const mood = { ...action.mood, playing: false }
+            const mood = { ...action.mood, playing: !action.mood.playing }
             return {
                 ...state,
                 [action.mood.name]: mood

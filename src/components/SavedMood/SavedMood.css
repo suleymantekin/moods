@@ -5,17 +5,19 @@
     box-shadow: 6px 6px 20px 0px rgba(0, 0, 0, 0.91);
 }
 
-h2 {
+.savedMood p {
+    font-size: 25px;
+    font-weight: 600;
     margin-bottom: 35px;
     margin-top: 5px;
 }
 
-span {
+.savedMood span {
     display: inline-block;
     height: 50px;
     user-select: none;
 }
 
-.playButton {
-    margin-top: 10px;
+.savedMood button {
+    margin-top: 15px;
 }
