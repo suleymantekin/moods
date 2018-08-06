@@ -14,7 +14,7 @@ class Moods extends Component {
   }
 
   saveMoodHandler = () => {
-    console.log("Save mood");
+    this.setState({ input: '' });
     this.props.saveMood(this.props.moods, this.state.input)
   }
 
