@@ -35,7 +35,7 @@ const initialState = {
     },
     Breeze: {
         name: "Breeze",
-        pictureUrl: require('../../assets/breeze.jpeg'),
+        pictureUrl: require('../../assets/breeze.jpg'),
         audioFileUrl: require('../../assets/breeze.mp3'),
         volume: 30,
         playing: false,
