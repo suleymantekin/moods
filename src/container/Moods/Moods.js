@@ -10,12 +10,39 @@ import "./Moods.css";
 class Moods extends Component {
 
   state = {
-    input: ''
+    input: '',
+    error: '',
+  }
+
+  validateInput() {
+    const { moods } = this.props;
+
+    // Check if the input is empty
+    if (this.state.input == "") {
+      this.setState({ error: 'Please enter a name for the mood!' })
+      return false;
+    }
+
+    // Check if any mood is playing
+    const sum = Object.keys(moods).reduce(function (accumulator, currentValue) {
+      if (moods[currentValue].playing) {
+        return accumulator + parseInt(moods[currentValue].volume);
+      }
+      return accumulator;
+    }, 0);
+    if (sum == 0) {
+      this.setState({ error: 'Please play a mood!' });
+      return false;
+    }
+
+    return true;
   }
 
   saveMoodHandler = () => {
-    this.setState({ input: '' });
-    this.props.saveMood(this.props.moods, this.state.input)
+    if (this.validateInput()) {
+      this.props.saveMood(this.props.moods, this.state.input)
+      this.setState({ input: '' });
+    }
   }
 
   pauseAllHandler = () => {
@@ -40,6 +67,8 @@ class Moods extends Component {
             togglePlay={this.props.togglePlay}
             changeVolume={this.props.changeVolume} />)}
         </div >
+        <label className="error">{this.state.error}</label>
+        <br />
         <input
           className="inputSaveMood"
           type="text"
