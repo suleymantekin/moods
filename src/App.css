@@ -55,3 +55,18 @@ li.logo {
   font-weight: 600;
   font-size: 45px;
 }
+
+footer ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  margin: 0px;
+  padding: 20px 0px;
+  background-color: black;
+}
+
+footer ul a {
+  color: white;
+  text-decoration: none;
+}
