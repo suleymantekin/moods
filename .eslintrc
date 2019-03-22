@@ -6,6 +6,7 @@
     "react/prop-types": "off",
     "react/destructuring-assignment": "off",
     "jsx-a11y/label-has-for": "off",
+    "global-require": "off",
     "prettier/prettier": [
       "error",
       {

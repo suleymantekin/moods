@@ -45,12 +45,22 @@ const initialState = {
   },
 };
 
+function removeMood(state, moodName) {
+  const newState = Object.assign({}, state);
+  delete newState[moodName];
+  return newState;
+}
+
 export default (state = initialState, action) => {
   switch (action.type) {
     case SAVE_MOOD:
       return {
         ...state,
         [action.name]: action.mood,
+      };
+    case DELETE_MOOD:
+      return {
+        ...removeMood(state, action.name),
       };
     default:
       return state;

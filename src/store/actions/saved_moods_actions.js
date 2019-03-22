@@ -7,7 +7,7 @@ export const saveMoodsAction = (mood, name) => ({
   name,
 });
 
-export const deleteMood = mood => ({
+export const deleteMood = name => ({
   type: DELETE_MOOD,
-  mood,
+  name,
 });

@@ -1,4 +1,4 @@
-import { TOGGLE_PLAY, CHANGE_VOLUME, PLAY_MOOD, PAUSE_ALL, pauseAll } from '../actions/moods_actions';
+import { TOGGLE_PLAY, CHANGE_VOLUME, PLAY_MOOD, PAUSE_ALL } from '../actions/moods_actions';
 
 const initialState = {
   Fireplace: {

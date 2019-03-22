@@ -1,23 +1,27 @@
 .savedMood {
-    margin: 20px 10px 10px 10px;
-    padding: 30px;
-    background-color: black;
-    box-shadow: 6px 6px 20px 0px rgba(0, 0, 0, 0.91);
+  margin: 20px 10px 10px 10px;
+  padding: 30px;
+  background-color: black;
+  box-shadow: 6px 6px 20px 0px rgba(0, 0, 0, 0.91);
 }
 
 .savedMood p {
-    font-size: 25px;
-    font-weight: 600;
-    margin-bottom: 35px;
-    margin-top: 5px;
+  font-size: 25px;
+  font-weight: 600;
+  margin-bottom: 35px;
+  margin-top: 5px;
 }
 
 .savedMood span {
-    display: inline-block;
-    height: 50px;
-    user-select: none;
+  display: inline-block;
+  height: 50px;
+  user-select: none;
 }
 
-.savedMood button {
-    margin-top: 15px;
+.savedMood div button {
+  margin-top: 15px;
+}
+
+.savedMoodButtons {
+  display: flex;
 }

@@ -2,18 +2,21 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { playMood } from '../../store/actions/moods_actions';
+import { deleteMood } from '../../store/actions/saved_moods_actions';
 import SavedMood from '../../components/SavedMood/SavedMood';
 import './SavedMoods.css';
 
-class Moods extends Component {
+class SavedMoods extends Component {
   play = mood => {
-    console.log(mood, 'ghfjjh');
     this.props.playMood(mood);
+  };
+
+  toggleDelete = name => {
+    this.props.deleteMood(name);
   };
 
   render() {
     const savedMoods = Object.keys(this.props.savedMoods);
-    console.log(savedMoods);
     return (
       <div className="savedMoods">
         {savedMoods.map(key => (
@@ -22,6 +25,7 @@ class Moods extends Component {
             name={key}
             moods={this.props.savedMoods[key]}
             play={this.play}
+            toggleDelete={this.toggleDelete}
           />
         ))}
       </div>
@@ -38,9 +42,12 @@ const mapDispatchToProps = dispatch => ({
   playMood: mood => {
     dispatch(playMood(mood));
   },
+  deleteMood: name => {
+    dispatch(deleteMood(name));
+  },
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Moods);
+)(SavedMoods);

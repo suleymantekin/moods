@@ -2,15 +2,14 @@ import React, { Component } from 'react';
 import './Mood.css';
 
 class Mood extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.audio = React.createRef();
   }
 
   componentDidUpdate() {
-    this.props.mood.playing
-      ? this.audio.current.play()
-      : this.audio.current.pause();
+    // eslint-disable-next-line
+    this.props.mood.playing ? this.audio.current.play() : this.audio.current.pause();
     this.audio.current.volume = this.props.mood.volume / 100;
   }
 
@@ -23,9 +22,8 @@ class Mood extends Component {
   };
 
   togglePlay = () => {
-    this.props.mood.playing
-      ? this.audio.current.play()
-      : this.audio.current.pause();
+    // eslint-disable-next-line
+    this.props.mood.playing ? this.audio.current.play() : this.audio.current.pause();
     this.props.togglePlay(this.props.mood);
   };
 
@@ -36,7 +34,7 @@ class Mood extends Component {
           <img src={this.props.mood.pictureUrl} alt={this.props.mood.name} />
         </div>
         <div className="card-content">
-          <button className="togglePlayButton" onClick={this.togglePlay}>
+          <button type="button" className="togglePlayButton" onClick={this.togglePlay}>
             {this.props.mood.playing ? 'Pause' : 'Play'}
           </button>
           <h3>{this.props.mood.name}</h3>
@@ -49,12 +47,9 @@ class Mood extends Component {
             onChange={this.handleVolumeUpdate}
           />
         </div>
-        <audio
-          id="fireplace"
-          ref={this.audio}
-          src={this.props.mood.audioFileUrl}
-          loop
-        />
+        <audio id="fireplace" ref={this.audio} src={this.props.mood.audioFileUrl} loop>
+          <track kind="captions" />
+        </audio>
       </div>
     );
   }

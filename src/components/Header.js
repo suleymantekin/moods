@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Header = props => (
+const Header = () => (
   <nav id="main">
     <ul>
       <li className="logo" style={{ fontFamily: 'Marck Script, cursive' }}>

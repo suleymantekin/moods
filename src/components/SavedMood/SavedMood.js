@@ -2,7 +2,7 @@ import React from 'react';
 
 import './SavedMood.css';
 
-const SavedMood = ({ name, moods, play }) => {
+const SavedMood = ({ name, moods, play, toggleDelete }) => {
   const sum = Object.keys(moods).reduce(function(accumulator, currentValue) {
     if (moods[currentValue].playing) {
       return accumulator + parseInt(moods[currentValue].volume);
@@ -13,7 +13,7 @@ const SavedMood = ({ name, moods, play }) => {
   return (
     <div className="savedMood">
       <p>{name}</p>
-      {Object.keys(moods).map((key, index) => {
+      {Object.keys(moods).map(key => {
         if (moods[key].playing) {
           return (
             <span
@@ -27,8 +27,16 @@ const SavedMood = ({ name, moods, play }) => {
             </span>
           );
         }
+        return null;
       })}
-      <button onClick={() => play(moods)}>Play</button>
+      <div className="savedMoodButtons">
+        <button type="button" onClick={() => play(moods)}>
+          Play
+        </button>
+        <button type="button" onClick={() => toggleDelete(name)}>
+          Delete
+        </button>
+      </div>
     </div>
   );
 };
