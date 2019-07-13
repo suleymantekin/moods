@@ -14,22 +14,18 @@ class SavedMoods extends Component {
   toggleDelete = name => {
     this.props.deleteMood(name);
   };
+  componentDidMount() {}
 
   render() {
-    const savedMoods = Object.keys(this.props.savedMoods);
-    return (
-      <div className="savedMoods">
-        {savedMoods.map(key => (
-          <SavedMood
-            key={key}
-            name={key}
-            moods={this.props.savedMoods[key]}
-            play={this.play}
-            toggleDelete={this.toggleDelete}
-          />
-        ))}
-      </div>
+    const localMoods = JSON.parse(localStorage.getItem('moods'));
+    const savedMoods = localMoods ? [this.props.savedMoods, ...localMoods] : [this.props.savedMoods];
+    const md = savedMoods.map(
+      mood =>
+        Object.keys(mood).map(key => (
+          <SavedMood key={key} name={key} moods={mood[key]} play={this.play} toggleDelete={this.toggleDelete} />
+        ))[0]
     );
+    return <div className="savedMoods">{md}</div>;
   }
 }
 

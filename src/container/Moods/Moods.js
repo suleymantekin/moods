@@ -13,11 +13,23 @@ class Moods extends Component {
     error: '',
   };
 
+  saveToLocalStorage(mood, key) {
+    const localMoods = JSON.parse(localStorage.getItem('moods'));
+    if (!localMoods) {
+      localStorage.setItem('moods', JSON.stringify([{ [key]: mood }]));
+    } else {
+      console.log(localMoods);
+      localMoods.push({ [key]: mood });
+      localStorage.setItem('moods', JSON.stringify(localMoods));
+    }
+  }
+
   saveMoodHandler = () => {
     if (this.validateInput()) {
       const { saveMood, moods } = this.props;
       const { input } = this.state;
       saveMood(moods, input);
+      this.saveToLocalStorage(moods, input);
       this.setState({ input: '' });
     }
   };
@@ -33,7 +45,7 @@ class Moods extends Component {
 
   validateInput() {
     const { moods } = this.props;
-
+    console.log(moods);
     // Check if the input is empty
     if (this.state.input === '') {
       this.setState({ error: 'Please enter a name for the mood!' });
